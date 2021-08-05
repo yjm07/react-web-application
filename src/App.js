@@ -1,58 +1,24 @@
-import PropTypes from 'prop-types';
+import React from 'react';
 
-const movieList = [
-    {
-        id: 1,
-        name: 'Homes',
-        type: 'comedy',
-        rating: 8.9
-    },
-    {
-        id: 2,
-        name: 'Avengers',
-        type: 'action',
-        rating: 9.4
-    }, 
-    {
-        id: 3,
-        name: 'Avatar',
-        type: 'SF',
-        rating: 9.6 
-    },
-    {
-        id: 4,
-        name: '',
-        type: '',
-        rating: 0.0
+class App extends React.Component {
+    state = {
+        count: 0
+    };
+    add = () => {
+        this.setState(current => ({count: current.count + 1}));
+    };
+    minus = () => {
+        this.setState(current => ({count: current.count - 1}));
+    };
+    render() {
+        return (  
+            <div>
+                <h1>Im a class {this.state.count}</h1>
+                <button onClick={this.add}>Add</button>
+                <button onClick={this.minus}>Minus</button>
+            </div>
+        );
     }
-];
-
-function Movie({name, type, rating}) {
-    console.log(name, type);
-    return (
-        <div>
-            <h3>I love {name}</h3>
-            <h4>rating: {rating}/10</h4>
-            type: {type}
-        </div>
-    );
-}
-
-Movie.propTypes = {
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired
-}
-
-function App() {
-  return (
-    <div>
-       <h1>hello!!</h1>
-       {movieList.map(movie => (
-       <Movie key={movie.id} name={movie.name} type={movie.type} rating={movie.rating}/>
-       ))}
-    </div>
-  );
 }
 
 export default App;
