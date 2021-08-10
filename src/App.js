@@ -1,7 +1,7 @@
-import React from 'react';
-import axios from 'axios';
-import Movie from './Movie';
-import './App.css'
+import React from "react";
+import axios from "axios";
+import Movie from "./Movie";
+import "./App.css"
 
 class App extends React.Component {
     state = {
@@ -14,7 +14,7 @@ class App extends React.Component {
         this.setState({movies, isLoading: false});
     } 
     componentDidMount() {
-        this.getMovies(); 
+        this.getMovies();
     }
 
     render() {
